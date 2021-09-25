@@ -2,10 +2,19 @@
 name = "kvs"
 version = "0.1.0"
 edition = "2018"
+authors = ["Mikołaj Rosowski <m.rosowski1@wp.pl>"]
+description = "A simple Key-Value database"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "kvs"
+
+[[bin]]
+name = "kvs"
+test = false
+doctest = false
 
 [dependencies]
+clap = "2.33.3"
 
 [dev-dependencies]
 assert_cmd = "2.0.1"
