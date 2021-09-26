@@ -19,3 +19,5 @@ clap = "2.33.3"
 [dev-dependencies]
 assert_cmd = "2.0.1"
 predicates = "2.0.2"
+tempfile = "3.2.0"
+walkdir = "2.3.2"
