@@ -65,7 +65,7 @@ fn cli_set() {
 fn cli_get_stored() -> Result<()> {
     let temp_dir = TempDir::new().expect("unable to create temporary working directory");
 
-    let mut store = KvStore::open(temp_dir.path())?;
+    let mut store = KvStore::open(temp_dir.path().join("./data"))?;
     store.set("key1".to_owned(), "value1".to_owned())?;
     store.set("key2".to_owned(), "value2".to_owned())?;
     drop(store);
@@ -94,7 +94,7 @@ fn cli_get_stored() -> Result<()> {
 fn cli_rm_stored() -> Result<()> {
     let temp_dir = TempDir::new().expect("unable to create temporary working directory");
 
-    let mut store = KvStore::open(temp_dir.path())?;
+    let mut store = KvStore::open(temp_dir.path().join("./data"))?;
     store.set("key1".to_owned(), "value1".to_owned())?;
     drop(store);
 
@@ -240,7 +240,7 @@ fn get_non_existent_value() -> Result<()> {
 fn remove_non_existent_key() -> Result<()> {
     let temp_dir = TempDir::new().expect("unable to create temporary working directory");
     let mut store = KvStore::open(temp_dir.path())?;
-    assert!(store.remove("key1".to_owned()).is_err());
+    assert!(!store.remove("key1".to_owned()).unwrap());
     Ok(())
 }
 
