@@ -27,6 +27,10 @@ fn main() -> Result<()> {
                 std::process::exit(1);
             }
         }
+        ("clean", _) => {
+            let recovered = store.clean_stale_data()?;
+            println!("Recovered {} bytes", recovered);
+        }
         _ => unreachable!(),
     };
 

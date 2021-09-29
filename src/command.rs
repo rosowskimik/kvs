@@ -4,6 +4,7 @@ use serde::{Deserialize, Serialize};
 
 /// Represents [`KvStore`] commands that are persisted to disk.
 #[derive(Debug, Serialize, Deserialize)]
+#[serde(untagged)]
 pub(crate) enum Command {
     Set(String, String),
     Remove(String),

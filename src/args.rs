@@ -45,6 +45,7 @@ pub fn get_cli_args<'src>() -> ArgMatches<'src> {
                         .value_name("KEY"),
                 ),
         )
+        .subcommand(SubCommand::with_name("clean").about("Removes all stale data kept in log"))
         .get_matches();
 
     matches

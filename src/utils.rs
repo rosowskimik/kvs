@@ -31,13 +31,15 @@ pub(crate) fn logfile_path<P: AsRef<Path>>(path: P, gen: usize) -> PathBuf {
     path.as_ref().join(format!("{}.log", gen))
 }
 
-/// Creates new logfile at given path with given generation number.
-pub(crate) fn new_logfile<P: AsRef<Path>>(path: P, gen: usize) -> Result<File> {
+/// Opens logfile for read/append operations at given path with given generation number.
+///
+/// This function will create a new logfile, if one matching the generation does not already exist.
+pub(crate) fn get_logfile<P: AsRef<Path>>(path: P, gen: usize) -> Result<File> {
     let new_path = logfile_path(path, gen);
 
     Ok(OpenOptions::new()
         .read(true)
-        .write(true)
+        .append(true)
         .create(true)
         .open(new_path)?)
 }

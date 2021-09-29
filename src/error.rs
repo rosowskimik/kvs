@@ -19,8 +19,8 @@ pub enum KvsError {
     Serde(#[from] serde_json::Error),
 
     /// Missing Logfile
-    #[error("tried to access missing logfile: {0}")]
-    MissingLogfile(String),
+    #[error("tried to access missing logfile: {0}.log")]
+    MissingLogfile(usize),
 
     /// Unexpected Command
     #[error("unexpected command (expected: {expected}, got: {got})")]

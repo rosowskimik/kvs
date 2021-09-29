@@ -1,6 +1,6 @@
 [package]
 name = "kvs"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2018"
 authors = ["Mikołaj Rosowski <m.rosowski1@wp.pl>"]
 description = "A simple Key-Value database"
