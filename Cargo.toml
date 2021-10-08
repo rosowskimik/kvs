@@ -4,6 +4,7 @@ version = "0.3.0"
 edition = "2018"
 authors = ["Mikołaj Rosowski <m.rosowski1@wp.pl>"]
 description = "A simple Key-Value database"
+license = "MIT"
 
 [lib]
 name = "kvs"
